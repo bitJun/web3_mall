@@ -1,0 +1,19 @@
+.box {
+    padding: 10px;
+    &_title {
+        font-size: 18px;
+        padding-left: 10px;
+        height: 26px;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    &_title::before {
+        content: '';
+        background: #fd560f;
+        height: 100%;
+        width: 2px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}

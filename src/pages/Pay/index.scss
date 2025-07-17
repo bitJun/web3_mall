@@ -1,0 +1,15 @@
+.pay_box {
+    min-height: calc(100vh - 250px);
+    padding: 5% 10%;
+    box-sizing: border-box;
+    &_main {
+        border: 1px solid #fd560f;
+        padding: 10%;
+        display: flex;
+        align-items: flex-start;
+        &_img {
+            width: 100px;
+            height: auto;
+        }
+    }
+}

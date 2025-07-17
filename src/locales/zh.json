@@ -1,0 +1,11 @@
+{
+    "message": {
+        "hello": "你好"
+    },
+    "app": {
+        "product": "产品",
+        "download": "下载",
+        "language": "语言",
+        "tip": "最流行产品"
+    }
+}
