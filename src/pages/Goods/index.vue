@@ -61,15 +61,15 @@ import { ref } from 'vue';
 
 const num = ref(5)
 const imgs = ref([
-    'http://124.220.206.154/cache//catalog/demo/Ledger Nano S/屏幕截图 2025-05-03 132258-150x150.png',
-    'http://124.220.206.154/cache//catalog/demo/Ledger%20Nano%20S/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-05-03%20132310-150x150.png',
-    'http://124.220.206.154/cache//catalog/demo/Ledger Nano S/屏幕截图 2025-05-03 132258-150x150.png',
-    'http://124.220.206.154/cache//catalog/demo/Ledger%20Nano%20S/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-05-03%20132325-150x150.png',
-    'http://124.220.206.154/cache//catalog/demo/Ledger%20Nano%20S/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-05-03%20132319-150x150.png',
-    'http://124.220.206.154/cache//catalog/demo/Ledger Nano S/屏幕截图 2025-05-03 132258-150x150.png',
+    'https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819',
+    'https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819',
+    'https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819',
+    'https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819',
+    'https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819',
+    'https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819',
 ]);
 
-const currentImg = ref('http://124.220.206.154/cache//catalog/demo/Ledger Nano S/屏幕截图 2025-05-03 132258-150x150.png');
+const currentImg = ref('https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819');
 
 const onChangeImg = (img) => {
     currentImg.value = img;

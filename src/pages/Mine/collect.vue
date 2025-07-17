@@ -9,7 +9,7 @@
                 <template #default="scope">
                     <div class="flex">
                         <img
-                            src="http://124.220.206.154/cache//catalog/demo/Ledger Nano S/屏幕截图 2025-05-03 132258-150x150.png"
+                            src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
                             class="collect_box_img"
                         />
                         demo

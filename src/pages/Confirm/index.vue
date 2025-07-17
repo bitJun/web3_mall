@@ -34,7 +34,7 @@
             >
                 <span :class="['radio', deliveryId == 1 ? 'active' : '']"></span>
                 <img
-                    src="http://124.220.206.154/cache/plugin/_flat_shipping/image/logo-100x100.png"
+                    src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
                     class="confirm_box_main_delivery_img"
                 />
                 <div class="confirm_box_main_delivery_info">
@@ -55,7 +55,7 @@
             <div class="confirm_box_section_item">
                 <div class="confirm_box_section_item_info">
                     <img
-                        src="http://124.220.206.154/cache//catalog/demo/Ledger Flex/屏幕截图 2025-04-30 172738-100x100.png"
+                        src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
                         class="confirm_box_section_item_info_img"
                     />
                     Ledger Flex
