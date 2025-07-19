@@ -1,11 +1,37 @@
 {
     "message": {
-        "hello": "Hello"
+        "hello": "你好"
     },
     "app": {
-        "product": "product",
-        "download": "download",
-        "language": "Language",
+        "home": "首页",
+        "app": "应用程序APP",
+        "product": "最新产品",
+        "like": "我的心愿单",
+        "download": "下载",
+        "language": "语言",
         "tip": "最流行产品"
+    },
+    "home": {
+        "title": "找到适合您的 Ledger 硬件钱包",
+        "shopmall": "去商城",
+        "sale": "月销",
+        "use": "使用",
+        "wallet": "加密钱包",
+        "tip": "来保证您的交易的物理安全",
+        "introduce": "-您的 Ledger 加密钱包的加密伴侣应用程序",
+        "desc": "满足您所有加密需求的便捷解决方案",
+        "name1": "放心地购买、销售和交换",
+        "desc1": "Ledger Live 可用于将您的硬件钱包连接到加密资产和法定货币入口",
+        "name2": "质押加密货币",
+        "desc2": "通过质押 ETH、SOL、ATOM、ADA 和其他几种硬币和代币可以获得奖励",
+        "name3": "掌握您的资产",
+        "desc3": "浏览并比较各种服务和提供商"
+    },
+    "goods": {
+        "title": "探索我们的设备"
+    },
+    "wish": {
+        "title": "我的心愿单",
+        "desc": "收藏所有心动，把期待变成即将拥有"
     }
 }

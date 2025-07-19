@@ -16,6 +16,7 @@
   }
   
   window.addEventListener("resize", function () {
+    console.log(123)
     if (window.innerWidth <= 768) {
       setMobileRem();
     } else {

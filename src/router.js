@@ -35,11 +35,27 @@ const routes = [
     }
   },
   {
-    path: '/goods/:id',
+    path: '/goods',
     name: 'Goods',
+    component: () => import('./pages/Goods/list.vue'),
+    meta: {
+      title: '商品列表'
+    }
+  },
+  {
+    path: '/goods/:id',
+    name: 'GoodsDetail',
     component: () => import('./pages/Goods/index.vue'),
     meta: {
       title: '商品详情'
+    }
+  },
+  {
+    path: '/wish',
+    name: 'Wish',
+    component: () => import('./pages/Wish/index.vue'),
+    meta: {
+      title: '心愿单'
     }
   },
   {

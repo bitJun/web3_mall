@@ -1,78 +1,32 @@
 <template>
   <header class="header">
     <div class="header_view">
-      <div class="header_view_left">
-        <img
-          src="http://124.220.206.154/upload/avatar/Yb92e8HwKXnRRaTuSB3vzNvxv3QrE93gy91LNQpi.png"
-          class="header_view_logo"
-        />
-        <el-dropdown>
-          <span class="el-dropdown-link">
-            $ USD
-            <el-icon class="el-icon--right">
-              <arrow-down />
-            </el-icon>
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item>￥&nbsp;人民币</el-dropdown-item>
-              <el-dropdown-item>$&nbsp;USD</el-dropdown-item>
-              <el-dropdown-item>€&nbsp;欧元</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-        <el-dropdown>
-          <span class="el-dropdown-link">
-            {{t('app.language')}}
-            <el-icon class="el-icon--right">
-              <arrow-down />
-            </el-icon>
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item>中文</el-dropdown-item>
-              <el-dropdown-item>EN</el-dropdown-item>
-              <el-dropdown-item>JP</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-      </div>
+      <img
+        src="@assets/logo.png"
+        class="header_view_logo"
+      />
       <div class="header_view_nav">
-        <div class="header_view_nav_item">{{t('app.product')}}</div>
-        <div class="header_view_nav_item">{{t('app.download')}}</div>
+        <div class="header_view_nav_item" @click="onGoUrl('/')">{{t('app.home')}}</div>
+        <div class="header_view_nav_item">{{t('app.app')}}</div>
+        <div class="header_view_nav_item" @click="onGoUrl('/goods')">{{t('app.product')}}</div>
+        <div class="header_view_nav_item" @click="onGoUrl('/wish')">{{t('app.like')}}</div>
       </div>
       <div class="header_view_action">
-        <div class="header_view_search">
-          <el-input
-            v-model="keyword"
-            style="width: 100%"
-            placeholder="Please input"
-          >
-            <template #append style="background: #febd69;">
-              <el-icon>
-                <Search />
-              </el-icon>
-            </template>
-          </el-input>
-        </div>
-        <el-icon
-          style="cursor: pointer;"
-          @click="onGoUrl('/collect')"
-        >
-          <Star />
-        </el-icon>
-        <el-icon
-          style="cursor: pointer;"
+        <img
+          src="@assets/search.png"
+          class="header_view_action_item"
+        />
+        <img
+          src="@assets/user.png"
+          class="header_view_action_item"
           @click="onGoUrl('/user')"
-        >
-          <UserFilled />
-        </el-icon>
-        <el-icon
-          style="cursor: pointer;"
+        />
+        <img
+          src="@assets/cart.png"
+          class="header_view_action_item"
           @click="drawer = true"
-        >
-          <ShoppingCart />
-        </el-icon>
+        />
+        <div class="header_view_action_line"></div>
       </div>
     </div>
   </header>
@@ -80,25 +34,76 @@
   <footer class="footer">
     <div class="footer_main">
       <h4 class="footer_main_title">联系我们</h4>
+      <div class="footer_main_tip">可以在我们的博客查看公告</div>
       <div class="footer_main_link">
-        support@example.com
+        媒体联系：<span>media@ledger.com</span>
       </div>
-      <div class="footer_main_link">
-        028-xxxxxxxx
+      <div class="footer_main_concat">
+        <div class="footer_main_concat_f">
+          <img
+            src="@assets/f.png"
+            class="footer_main_concat_f_icon"
+          />
+        </div>
+        <img
+          src="@assets/x.png"
+          class="footer_main_concat_item"
+        />
+        <img
+          src="@assets/i.png"
+          class="footer_main_concat_item"
+        />
+        <img
+          src="@assets/youtube.png"
+          class="footer_main_concat_item"
+        />
+        <img
+          src="@assets/douyin.png"
+          class="footer_main_concat_item"
+        />
       </div>
-      <div class="footer_main_link">
-        科技撒谎大萨达ia是的撒收到
+    </div>
+    <div class="footer_info">
+      <div class="footer_info_title">订阅我们的时事通讯</div>
+      <div class="footer_info_desc">支持新币种，博客更新和独家优惠直接发送到您的收件箱</div>
+      <div class="footer_info_action">
+        <input
+          class="footer_info_action_input"
+          placeholder="请输入您的电子邮箱"
+        />
+        <div class="footer_info_action_btn">
+          订阅新闻
+          <img
+            src="@assets/arrow.png"
+            class="footer_info_action_btn_icon"
+          />
+        </div>
       </div>
-      <div class="footer_main_link">
-        https://www.baidu.com
+      <div class="footer_info_tip">
+        您的电子邮件地址仅用于向您发送我们的新闻通讯、最新资讯和优惠信息。您可以随时通过新闻通讯中的链接取消订阅。 了解更多关于我们如何管理您的数据和您的权利。
       </div>
     </div>
   </footer>
-   <el-drawer
+  <el-drawer
     v-model="drawer"
+    :show-close="false"
     title=""
     :direction="direction"
+    width="465px"
+  
   >
+    <template #header>
+      <div class="drawer_header">
+        <div class="drawer_header_main">
+          购物车
+          <span></span>
+          <img
+            class="drawer_header_icon"
+            src="@assets/close.png"
+          />
+        </div>
+      </div>
+    </template>
     <div class="isEmpty" v-if="isEmpty">
       <el-icon
         style="cursor: pointer; font-size: 24px;"
@@ -148,7 +153,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n';
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 const { t, locale } = useI18n();
 
 const router = useRouter();
@@ -172,7 +177,12 @@ const onGoUrl = (url) => {
   router.push(url)
 }
 </script>
-
+<style>
+.el-drawer__header {
+  padding: 0;
+  box-sizing: border-box;
+}
+</style>
 <style lang="scss" scoped>
 @import url(./app.scss);
 </style>

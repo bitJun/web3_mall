@@ -6,6 +6,7 @@ import 'element-plus/dist/index.css';
 import './style.css';
 import router from './router.js';
 import { createPinia } from 'pinia';
+import './rem.js';
 import App from './App.vue';
 import en from './locales/en.json';
 import zh from './locales/zh.json';
