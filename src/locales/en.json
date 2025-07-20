@@ -73,5 +73,11 @@
         "tip1": "固定运费",
         "tip2": "按订单总额收取固定运费",
         "default": "默认"
+    },
+    "download": {
+        "name": "下载 Ledger Live™ app",
+        "desc1": "Ledger Live™ 是 Ledger 钱包的配套应用程序。下载并设置您的 Ledger 钱包 开始在一个",
+        "desc2": "地方安全地管理您的所有数字资产。",
+        "tip": "选择您的操作系统来下载下面的 Ledger Live™"
     }
 }

@@ -1,0 +1,54 @@
+.download_box {
+    &_img {
+        width: 100%;
+        height: auto;
+    }
+    &_info {
+        padding: 10.9rem 30.1rem 21.7rem 30.1rem;
+        box-sizing: border-box;
+        background-image: url('../../assets/img_bg.png');
+        background-size: cover;
+        &_name {
+            height: 6.5rem;
+            line-height: 6.5rem;
+            font-family: PingFang SC, PingFang SC;
+            font-weight: 500;
+            font-size: 4.7rem;
+            margin-bottom: 2.3rem;
+            color: #FFFFFF;
+            text-align: center;
+        }
+        &_desc {
+            line-height: 3.3rem;
+            font-family: PingFang SC, PingFang SC;
+            font-weight: 400;
+            font-size: 2.3rem;
+            color: #FFFFFF;
+            text-align: center;
+        }
+        &_tip {
+            margin-top: 1.9rem;
+            height: 2.4rem;
+            font-family: PingFang SC, PingFang SC;
+            font-weight: 400;
+            font-size: 1.7rem;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 11.6rem;
+        }
+        &_list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &_item {
+                width: 24.4rem;
+                height: 8.9rem;
+                cursor: pointer;
+                &_img {
+                    width: 24.4rem;
+                    height: 8.9rem;
+                }
+            }
+        }
+    }
+}

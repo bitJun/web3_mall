@@ -7,7 +7,7 @@
       />
       <div class="header_view_nav">
         <div class="header_view_nav_item" @click="onGoUrl('/')">{{t('app.home')}}</div>
-        <div class="header_view_nav_item">{{t('app.app')}}</div>
+        <div class="header_view_nav_item" @click="onGoUrl('/download')">{{t('app.app')}}</div>
         <div class="header_view_nav_item" @click="onGoUrl('/goods')">{{t('app.product')}}</div>
         <div class="header_view_nav_item" @click="onGoUrl('/wish')">{{t('app.like')}}</div>
       </div>

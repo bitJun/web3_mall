@@ -19,6 +19,14 @@ const routes = [
     }
   },
   {
+    path: '/download',
+    name: 'Download',
+    component: () => import('./pages/Download/index.vue'),
+    meta: {
+      title: '下载'
+    }
+  },
+  {
     path: '/forgetPwd',
     name: 'ForgetPwd',
     component: () => import('./pages/ForgetPwd/index.vue'),
