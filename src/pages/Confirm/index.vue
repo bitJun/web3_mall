@@ -1,127 +1,227 @@
 <template>
-    <div class="confirm_box">
-        <div class="confirm_box_main">
-            <div class="confirm_box_main_title">
-                配送地址
-            </div>
-            <div class="confirm_box_main_title">
-                支付方式
-            </div>
-            <div class="confirm_box_main_pay">
+    <div class="cart_view">
+        <p class="cart_view_title">{{t('cart.title')}}</p>
+        <div class="cart_view_step">
+            <div 
+                :class="['cart_view_step_item', step <= 3 ? 'active' : '']"
+            >
+                <img
+                    v-if="step > 1"
+                    src="@assets/checked.png"
+                    class="cart_view_step_item_img"
+                />
                 <div
-                    :class="['confirm_box_main_pay_item', payId == item.id ? 'active' : '']"
-                    v-for="(item, index) in payList"
-                    :key="index"
-                    @click="payId = item.id"
+                    v-if="step == 1"
+                    class="cart_view_step_item_dot"
                 >
-                    <span :class="['radio', payId == item.id ? 'active' : '']"></span>
-                    <img
-                        :src="item.img"
-                        class="confirm_box_main_pay_item_img"
-                    />
-                    <div class="confirm_box_main_pay_item_info">
-                        <p class="confirm_box_main_pay_item_info_name">{{item.name}}</p>
-                        <p class="confirm_box_main_pay_item_info_desc">{{item.value}}&nbsp;&nbsp;<span>{{item.desc}}</span></p>
+                    1
+                </div>
+                {{t('cart.cart')}}
+            </div>
+            <div :class="['cart_view_step_line', step <= 2 ? 'active' : '']"></div>
+            <div 
+                :class="['cart_view_step_item', step == 2 ? 'active' : '']"
+            >
+                <img
+                    v-if="step > 2"
+                    src="@assets/checked.png"
+                    class="cart_view_step_item_img"
+                />
+                <div
+                    v-else
+                    :class="['cart_view_step_item_dot', step !== 2 ? 'disable' : '']"
+                >
+                    2
+                </div>
+                {{t('cart.confirm')}}
+            </div>
+            <div :class="['cart_view_step_line', step == 3 ? 'active' : '']"></div>
+            <div 
+                :class="['cart_view_step_item', step == 3 ? 'active' : '']"
+            >
+                 <div
+                    :class="['cart_view_step_item_dot', step !== 3 ? 'disable' : '']"
+                >
+                    3
+                </div>
+                {{t('cart.pay')}}
+            </div>
+        </div>
+        <div class="cart_view_pay" v-if="step == 3">
+            <img
+                src="@assets/payIcon.png"
+                class="cart_view_pay_img"
+            />
+            <div class="cart_view_pay_main">
+                <p class="cart_view_pay_main_title">{{t('cart.tip')}}</p>
+                <div class="cart_view_pay_main_info">
+                    <div class="cart_view_pay_main_info_item mb8">
+                        {{t('cart.orderNo')}}：
+                        <span>2025071916364</span>
+                    </div>
+                    <div class="cart_view_pay_main_info_item mb15">
+                        {{t('cart.payAmount')}}：
+                        <span class="red">$334.80</span>
+                    </div>
+                    <div class="cart_view_pay_main_info_item">
+                        {{t('cart.payType')}}：
+                        <img
+                            src="@assets/paypal.png"
+                        />
+                    </div>
+                </div>
+                <div class="cart_view_pay_main_action">
+                    <div class="cart_view_pay_main_action_item">
+                        {{t('cart.toPay')}}
+                        <img
+                            src="@assets/check.png"
+                        />
+                    </div>
+                    <div class="cart_view_pay_main_action_item">
+                        {{t('cart.credit')}}
+                        <img
+                            src="@assets/credit.png"
+                        />
                     </div>
                 </div>
             </div>
-            <div class="confirm_box_main_title">
-                配送方式
-            </div>
-            <div
-                :class="['confirm_box_main_delivery', deliveryId == 1 ? 'active' : '']"
-                @click="deliveryId = 1"
-            >
-                <span :class="['radio', deliveryId == 1 ? 'active' : '']"></span>
-                <img
-                    src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
-                    class="confirm_box_main_delivery_img"
-                />
-                <div class="confirm_box_main_delivery_info">
-                    <p class="confirm_box_main_delivery_info_name">固定运费</p>
-                    <p class="confirm_box_main_delivery_info_desc">按订单总额收取固定运费</p>
-                </div>
-            </div>
-            <div class="confirm_box_main_title">
-                订单备注
-            </div>
-            <textarea
-                class="confirm_box_main_textarea"
-                placeholder="请输入订单备注"
-            />
         </div>
-        <div class="confirm_box_section">
-            <div class="confirm_box_main_title">购物车总数</div>
-            <div class="confirm_box_section_item">
-                <div class="confirm_box_section_item_info">
+        <div class="cart_view_box" v-else>
+            <div class="cart_view_box_cartList" v-if="step == 1">
+                <div class="cart_view_box_title">{{ t('cart.subtitle') }}</div>
+                <div class="cart_view_box_thead">
+                    <div class="cart_view_box_thead_th w117">
+                        <el-checkbox 
+                            v-model="chooseAll"
+                            class="check"
+                        >
+                            {{t('cart.chooseAll')}}
+                        </el-checkbox>
+                    </div>
+                    <div class="cart_view_box_thead_th w377">{{t('cart.subtitle')}}</div>
+                    <div class="cart_view_box_thead_th w114">{{t('cart.num')}}</div>
+                    <div class="cart_view_box_thead_th w147">{{t('cart.fee')}}</div>
+                    <div class="cart_view_box_thead_th w1">{{t('cart.operate')}}</div>
+                </div>
+                <div
+                    class="cart_view_box_tr"
+                    v-for="item in list"
+                    :key="item"
+                >
+                    <div class="cart_view_box_tr_td w117">
+                        <el-checkbox></el-checkbox>
+                    </div>
+                    <div class="cart_view_box_tr_td w377">
+                        <img
+                            src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
+                        />
+                        Ledger Flex
+                    </div>
+                    <div class="cart_view_box_tr_td w114">x 1</div>
+                    <div class="cart_view_box_tr_td w147">$ 288.00</div>
+                    <div class="cart_view_box_tr_td w1">
+                        <div class="cart_view_box_tr_td_action">{{t('cart.del')}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart_view_box_container" v-else>
+                <div class="cart_view_box_title">{{ t('cart.address') }}</div>
+                <div class="cart_view_box_address">
+                    <div class="cart_view_box_address_user">王立东&nbsp;&nbsp;19816239876&nbsp;&nbsp;<span>{{t('cart.default')}}</span></div>
+                    <div class="cart_view_box_address_detail">中国北京市朝阳区盛和街道方大楼街道198号晟和园小区10栋1单元901室</div>
+                    <div class="cart_view_box_address_action">
+                        <img
+                            src="@assets/edit.png"
+                            class="cart_view_box_address_action_icon"
+                        />
+                        <img
+                            src="@assets/trash.png"
+                            class="cart_view_box_address_action_icon"
+                        />
+                    </div>
+                </div>
+                <div class="cart_view_box_add">
                     <img
-                        src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
-                        class="confirm_box_section_item_info_img"
+                        src="@assets/add.png"
+                        class="cart_view_box_add_img"
                     />
-                    Ledger Flex
+                    {{t('cart.add')}}
                 </div>
-                <div class="confirm_box_section_item_price">
-                    <p class="confirm_box_section_item_price_value">$310.00</p>
-                    <p class="confirm_box_section_item_price_num">x 1</p>
+                <div class="cart_view_box_title">{{ t('cart.paymentType') }}</div>
+                <div class="cart_view_box_paymentType">{{ t('cart.paymentType') }}</div>
+                <div class="cart_view_box_title">{{ t('cart.deliver') }}</div>
+                <div class="cart_view_box_deliver">
+                    <img
+                        src="@assets/icon.png"
+                        class="cart_view_box_deliver_icon"
+                    />
+                    <div class="cart_view_box_deliver_main">
+                        <div class="cart_view_box_deliver_main_tip1">{{ t('cart.tip1') }}</div>
+                        <div class="cart_view_box_deliver_main_tip2">{{ t('cart.tip2') }}</div>
+                    </div>
+                </div>
+                <div class="cart_view_box_title">{{ t('cart.note') }}</div>
+                
+                <textarea
+                    class="cart_view_box_textarea"
+                    :placeholder="t('cart.noteplaceholder')"
+                />
+            </div>
+            <div class="cart_view_box_list">
+                <div class="cart_view_box_titles">
+                    {{step == 1 ? t('cart.total') : t('cart.tips')}}
+                    <span class="cart_view_box_titles_num">2</span>
+                </div>
+                <div class="cart_view_box_line"></div>
+                <div v-if="step == 2">
+                    <div 
+                        class="cart_view_box_list_item"
+                        v-for="item in [1,2,3]"
+                        :key="item"
+                    >
+                        <img
+                            src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
+                            class="cart_view_box_list_item_img"
+                        />
+                        <div class="cart_view_box_list_item_main">
+                            <p class="cart_view_box_list_item_main_name">Ledger Flex</p>
+                            <p class="cart_view_box_list_item_main_info">
+                                $ 288.00
+                                <span>x 1</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart_view_box_info">
+                    <span>{{t('cart.all')}}</span>
+                    3
+                </div>
+                <div class="cart_view_box_info">
+                    <span>{{t('cart.choose')}}</span>
+                    1
+                </div>
+                <div class="cart_view_box_lines"></div>
+                <div class="cart_view_box_all">
+                    {{t('cart.total')}}
+                    <span>$334.80</span>
+                </div>
+                <div class="cart_view_box_btn">
+                    {{step == 1 ? t('cart.toPayment') : t('cart.submit')}}
                 </div>
             </div>
-            <div class="confirm_box_section_main">
-                <div class="confirm_box_section_main_item">
-                    <label>商品总计</label>
-                    $300.00
-                </div>
-                <div class="confirm_box_section_main_item">
-                    <label>运费</label>
-                    $300.00
-                </div>
-                <div class="confirm_box_section_main_item">
-                    <label>会员优惠</label>
-                    $300.00
-                </div>
-                <div class="confirm_box_section_main_item">
-                    <label>应付总金额</label>
-                    <span>$300.00</span>
-                </div>
-            </div>
-            <div class="confirm_box_section_action">提交订单</div>
         </div>
     </div>
 </template>
 <script setup>
-import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n';
-import { ref } from "vue";
 const { t, locale } = useI18n();
 
-const router = useRouter();
-
-const payId = ref(null);
-const deliveryId = ref(null);
-const payList = ref([
-    {
-        id: 0,
-        img: 'http://124.220.206.154/cache/plugin/_paypal/image/logo-100x100.png',
-        name: 'PayPal',
-        value: 'paypal',
-        desc: 'PayPal Developer'
-    },
-    {
-        id: 1,
-        img: 'http://124.220.206.154/cache/plugin/_stripe/image/logo-100x100.png',
-        name: 'Stripe 支付',
-        value: 'Stripe 支付',
-        desc: 'Stripe'
-    },
-    {
-        id: 2,
-        img: 'http://124.220.206.154/cache/plugin/_bitpay/image/logo-100x100.png',
-        name: 'BitPay',
-        value: 'BitPay 支付',
-        desc: 'BitPay'
-    }
-])
+const step = ref(2);
+const list = ref([1,2,3,4,5]);
+const chooseAll = ref(false);
 
 </script>
 <style lang="scss" scoped>
-    @import url('./index.scss');
+@import url('./index.scss');
 </style>

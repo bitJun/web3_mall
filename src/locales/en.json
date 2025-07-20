@@ -33,5 +33,45 @@
     "wish": {
         "title": "我的心愿单",
         "desc": "收藏所有心动，把期待变成即将拥有"
+    },
+    "login": {
+        "login": "登录",
+        "register": "注册",
+        "placeholder": "输入邮箱地址",
+        "password": "输入密码",
+        "forget": "忘记密码"
+    },
+    "cart": {
+        "title": "首页 / 结账",
+        "cart": "购物车",
+        "confirm": "结账",
+        "pay": "付款",
+        "tip": "订单提交成功，请付款...",
+        "orderNo": "订单编号",
+        "payAmount": "付款金额",
+        "payType": "付款方式",
+        "paymentType": "支付方式",
+        "toPay": "去付款",
+        "credit": "信用卡/借记卡",
+        "subtitle": "商品",
+        "total": "商品总计",
+        "all": "全部",
+        "choose": "已选",
+        "toPayment": "去结账",
+        "num": "数量",
+        "fee": "小计",
+        "operate": "操作",
+        "chooseAll": "全选",
+        "del": "删除",
+        "tips": "购物车总数",
+        "submit": "提交订单",
+        "address": "配送地址",
+        "add": "添加配送地址",
+        "note": "订单备注",
+        "deliver": "配送方式",
+        "noteplaceholder": "填写订单备注信息",
+        "tip1": "固定运费",
+        "tip2": "按订单总额收取固定运费",
+        "default": "默认"
     }
 }

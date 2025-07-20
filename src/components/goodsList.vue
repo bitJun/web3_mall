@@ -61,10 +61,10 @@ const onShowDetail = (id) => {
             align-items: center;
             justify-content: space-between;
             &_price {
-                padding: 0 0.08rem;
+                padding: 0 0.8rem;
                 height: 35px;
                 background: #F3EFFE;
-                border-radius: 0.04rem;
+                border-radius: 0.4rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
