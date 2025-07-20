@@ -1,50 +1,32 @@
 <template>
     <div class="collect_box">
-        <h4 class="collect_box_title">我的收藏</h4>
-        <el-table 
-            :data="tableData"
-            style="width: 100%;margin-top: 20px;background: transparent;"
-        >
-            <el-table-column prop="" label="商品">
-                <template #default="scope">
-                    <div class="flex">
-                        <img
-                            src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
-                            class="collect_box_img"
-                        />
-                        demo
-                    </div>
-                </template>
-            </el-table-column>
-            <el-table-column prop="" label="价格">
-                <template #default="scope">
-                    $200.00
-                </template>
-            </el-table-column>
-            <el-table-column prop="" label="" width="120">
-                <template #default="scope">
-                     <el-icon
-                        style="cursor: pointer;margin-right: 20px;"
-                    >
-                        <ShoppingCart />
-                    </el-icon>
-                    <el-icon
-                        style="cursor: pointer;"
-                    >
-                        <Delete />
-                    </el-icon>
-                </template>
-            </el-table-column>
-        </el-table>
+        <h4 class="collect_box_title">{{t('center.collect')}}</h4>
+        <div class="collect_box_thead">
+            <div class="collect_box_thead_th w700">{{t('center.product')}}</div>
+            <div class="collect_box_thead_th w280">{{t('center.price')}}</div>
+        </div>
+        <div class="collect_box_tbody">
+            <div class="collect_box_tr" v-for="(item, index) in list" :key="index">
+                <div class="collect_box_tr_td w700">
+                    <img
+                        src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
+                        class="collect_box_tr_td_img"
+                    />
+                    Ledger Flex
+                </div>
+                <div class="collect_box_tr_td price w280">$ 288.00</div>
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
     import { ref } from 'vue'
     import { useRouter } from 'vue-router';
-
+    import { useI18n } from 'vue-i18n';
+    const { t, locale } = useI18n();
     const router = useRouter();
 
-    const tableData = [
+    const list = [
         {
             date: '2016-05-03',
             name: 'Tom',

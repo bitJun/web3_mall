@@ -77,11 +77,20 @@ const routes = [
   {
     path: '/mine',
     name: 'Mine',
+    redirect: '/center',
     component: () => import('./pages/Mine/index.vue'),
     meta: {
       title: '我的'
     },
     children: [
+      {
+        path: '/center',
+        name: 'Center',
+        component: () => import('./pages/Mine/center.vue'),
+        meta: {
+          title: '我的订单'
+        },
+      },
       {
         path: '/order',
         name: 'Order',
@@ -94,6 +103,14 @@ const routes = [
         path: '/collect',
         name: 'Collect',
         component: () => import('./pages/Mine/collect.vue'),
+        meta: {
+          title: '我的收藏'
+        },
+      },
+      {
+        path: '/pwd',
+        name: 'Pwd',
+        component: () => import('./pages/Mine/pwd.vue'),
         meta: {
           title: '我的收藏'
         },

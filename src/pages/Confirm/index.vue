@@ -211,15 +211,27 @@
             </div>
         </div>
     </div>
+    
 </template>
 <script setup>
+import address from '@components/address.vue';
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
 
+const show = ref(true);
+
 const step = ref(2);
 const list = ref([1,2,3,4,5]);
 const chooseAll = ref(false);
+
+const handleOk = () => {
+    show.value = false;
+}
+
+const handleCancel = () => {
+    show.value = false;
+}
 
 </script>
 <style lang="scss" scoped>

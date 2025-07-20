@@ -1,60 +1,38 @@
 <template>
     <div class="box">
         <h4 class="box_title">我的售后</h4>
-        <el-table 
-            :data="tableData"
-            style="width: 100%;margin-top: 20px;background: transparent;"
-        >
-            <el-table-column prop="" label="商品">
-                <template #default="scope">
-                    <div class="flex">
-                        <img
-                            src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
-                            class="box_img"
-                        />
-                        demo
-                    </div>
-                </template>
-            </el-table-column>
-            <el-table-column prop="" label="数量">
-                <template #default="scope">
-                    1
-                </template>
-            </el-table-column>
-            <el-table-column prop="" label="服务类型">
-                <template #default="scope">
-                    售后
-                </template>
-            </el-table-column>
-            <el-table-column prop="" label="创建时间" width="180">
-                <template #default="scope">
-                    2025-07-19 23:18:00
-                </template>
-            </el-table-column>
-            <el-table-column prop="" label="" width="120">
-                <template #default="scope">
-                     <el-icon
-                        style="cursor: pointer;margin-right: 20px;"
-                    >
-                        <ShoppingCart />
-                    </el-icon>
-                    <el-icon
-                        style="cursor: pointer;"
-                    >
-                        <Delete />
-                    </el-icon>
-                </template>
-            </el-table-column>
-        </el-table>
+        <div class="box_thead">
+            <div class="box_thead_th w383">{{t('center.product')}}</div>
+            <div class="box_thead_th w149">{{t('center.num')}}</div>
+            <div class="box_thead_th w154">{{t('center.type')}}</div>
+            <div class="box_thead_th w202">{{t('center.createTime1')}}</div>
+            <div class="box_thead_th w92">{{t('center.operate1')}}</div>
+        </div>
+        <div class="box_tbody">
+            <div class="box_tr" v-for="(item, index) in list" :key="index">
+                <div class="box_tr_td w383">
+                    <img
+                        src="https://p0.ssl.img.360kuai.com/dmfd/158_88_75/t11508c75c8423c35fb6c06b871.webp?size=1024x819"
+                        class="box_tr_td_img"
+                    />
+                    Ledger Flex
+                </div>
+                <div class="box_tr_td price w149">x 1</div>
+                <div class="box_tr_td price w154">保修</div>
+                <div class="box_tr_td price w202">2025/07/01</div>
+                <div class="box_tr_td del w92">{{t('center.del')}}</div>
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
     import { ref } from 'vue'
     import { useRouter } from 'vue-router';
-
+    import { useI18n } from 'vue-i18n';
+    const { t, locale } = useI18n();
     const router = useRouter();
 
-    const tableData = [
+    const list = [
         {
             date: '2016-05-03',
             name: 'Tom',
