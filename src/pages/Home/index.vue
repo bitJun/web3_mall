@@ -122,13 +122,14 @@
     </div>
 </template>
 <script setup>
+import {get} from '@utils/request';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import goodsList from '@components/goodsList.vue';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
@@ -137,6 +138,7 @@ const router = useRouter();
 
 const modules = ref([Navigation, Pagination]);
 
+const detail = ref({});
 const change = () => {
     locale.value = 'zh'
 }
@@ -155,6 +157,24 @@ const onShowList = () => {
 const onSlideChange = () => {
     console.log('slide change');
 };
+
+onMounted(()=>{
+    onLoadData();
+});
+
+const onLoadData = () => {
+    get('/index')
+        .then(res=>{
+            let {
+                modules
+            } = res;
+            let keys = Object.keys(modules);
+            keys.forEach(key=>{
+                detail.value[key] = modules[key];
+            })
+            console.log('res', res)
+        })
+}
 </script>
 <style lang="scss" scoped>
 @import url('./index.scss');
