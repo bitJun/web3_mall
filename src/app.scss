@@ -38,6 +38,11 @@
         width: 2.3rem;
         height: 2.3rem;
         cursor: pointer;
+        position: relative;
+        &_icon {
+          width: 2.3rem;
+          height: 2.3rem;
+        }
       }
       &_line {
         width: 2.3rem;

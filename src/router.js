@@ -138,7 +138,15 @@ const routes = [
         meta: {
           title: '我的售后'
         },
-      }
+      },
+      {
+        path: '/orderDetail',
+        name: 'OrderDetail',
+        component: () => import('./pages/Mine/orderDetail.vue'),
+        meta: {
+          title: '订单详情'
+        }
+      },
     ]
   },
   // 404页面

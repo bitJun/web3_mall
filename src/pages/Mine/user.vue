@@ -1,42 +1,51 @@
 <template>
     <div class="user_box">
         <h4 class="user_box_title">个人信息</h4>
-        <div class="user_box_avatar">
-            <el-upload
-                class="avatar-uploader"
-                action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-                :show-file-list="false"
-                :on-success="handleAvatarSuccess"
-                :before-upload="beforeAvatarUpload"
-            >
-                <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-                <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
-            </el-upload>
-            <p>上传JPG或PNG图片。建议300 x 300。</p>
-        </div>
-        <el-form :inline="true" :model="formInline" class="demo-form-inline">
-            <el-form-item label="昵称">
-                <el-input v-model="formInline.nickname" placeholder="nickname" clearable />
-            </el-form-item>
-            <el-form-item label="邮箱">
-                <el-input v-model="formInline.email" placeholder="email" clearable />
-            </el-form-item>
-            <el-form-item>
-                <el-button
-                    type="primary"
-                    @click="onSubmit"
-                    style="background: #fd560f;border-color: #fd560f;"
+        <h4 class="user_box_line"></h4>
+        <div class="user_box_main">
+            <img
+                src="@assets/avator.png"
+                class="user_box_main_avator"
+            />
+            <div class="user_box_main_form">
+                <el-upload
+                    v-model:file-list="fileList"
+                    class="upload-demo"
+                    action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+                    :show-file-list="false"
+                    :on-success="handleAvatarSuccess"
+                    :before-upload="beforeAvatarUpload"
                 >
-                    提交
-                </el-button>
-            </el-form-item>
-        </el-form>
+                    <div class="user_box_main_form_upload">
+                        {{ t('center.upload') }}
+                        <img
+                            src="@assets/upload.png"
+                            class="user_box_main_form_upload_icon"
+                        />
+                    </div>
+                </el-upload>
+                <p class="user_box_main_form_tip">{{ t('center.tip') }}</p>
+                <div class="user_box_main_form_control">
+                    <input
+                        class="user_box_main_form_control_val"
+                    />
+                </div>
+                <div class="user_box_main_form_control">
+                    <input
+                        class="user_box_main_form_control_val"
+                    />
+                </div>
+                <div class="user_box_main_form_btn">{{t('center.submit')}}</div>
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
     import { ref, reactive } from 'vue';
     import { ElMessage } from 'element-plus';
     import { useRouter } from 'vue-router';
+    import { useI18n } from 'vue-i18n';
+    const { t, locale } = useI18n();
     const router = useRouter();
 
     const imageUrl = ref('');

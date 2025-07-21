@@ -72,6 +72,9 @@
         "desc2": "地方安全地管理您的所有数字资产。",
         "tip": "选择您的操作系统来下载下面的 Ledger Live™"
     },
+    "product": {
+        "title": "最新产品"
+    },
     "center": {
         "home": "个人中心",
         "info": "修改个人信息",
@@ -102,6 +105,27 @@
         "operate1": "操作",
         "num": "数量",
         "type": "服务类型",
-        "del": "删除"
+        "del": "删除",
+        "upload": "上传头像",
+        "tip": "上传JPG或PNG图片。建议300 x 300。",
+        "subtitle": "订单详情",
+        "toPay": "去支付",
+        "cancel": "取消订单",
+        "status": "状态",
+        "orderTime": "下单日期",
+        "orderPrice": "订单金额",
+        "paymentType": "支付方式",
+        "deliver": "配送方式",
+        "addressInfo": "地址信息",
+        "orderGoods": "订购商品",
+        "note": "备注信息",
+        "deliverAddress": "配送地址",
+        "payAddress": "账单地址",
+        "goodsTotal": "商品总计",
+        "fee": "运费",
+        "discount": "会员优惠",
+        "name": "姓名",
+        "address": "地址",
+        "pcode": "邮编"
     }
 }

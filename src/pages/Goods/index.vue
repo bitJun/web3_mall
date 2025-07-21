@@ -1,5 +1,6 @@
 <template>
     <div class="goods_box">
+        <div class="goods_box_title">{{t('product.title')}}  /  Ledger Flex</div>
         <div class="goods_box_info">
             <div class="goods_box_info_img">
                 <div class="goods_box_info_img_list">
@@ -23,7 +24,7 @@
                 </div>
             </div>
             <div class="goods_box_info_base">
-                <h4 class="goods_box_info_base_name">Ledger Nano S Plus</h4>
+                <h4 class="goods_box_info_base_name">Ledger Flex</h4>
                 <p class="goods_box_info_base_price">
                     <span>$</span>97.33
                 </p>
@@ -39,17 +40,27 @@
                     <label>型号:</label>
                     <span>Nano S Plus</span>
                 </div>
-                <el-input-number v-model="num" :step="1" />
                 <div class="goods_box_info_base_action">
                     <div class="goods_box_info_base_action_item addcart">
                         加入购物车
+                        <img
+                            src="@assets/arrow-right.png"
+                            class="goods_box_info_base_action_item_icon"
+                        />
                     </div>
                     <div class="goods_box_info_base_action_item buynow">
                         立即购买
+                        <img
+                            src="@assets/cart.png"
+                            class="goods_box_info_base_action_item_icon"
+                        />
                     </div>
                 </div>
                 <div class="goods_box_info_base_collect">
-                    <el-icon><Star /></el-icon>
+                    <img
+                        src="@assets/collect.png"
+                        class="goods_box_info_base_collect_icon"
+                    />
                     <span>收藏</span>
                 </div>
             </div>
@@ -58,6 +69,8 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+const { t, locale } = useI18n();
 
 const num = ref(5)
 const imgs = ref([

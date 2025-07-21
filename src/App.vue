@@ -12,21 +12,26 @@
         <div class="header_view_nav_item" @click="onGoUrl('/wish')">{{t('app.like')}}</div>
       </div>
       <div class="header_view_action">
-        <img
-          src="@assets/search.png"
-          class="header_view_action_item"
-        />
-        <img
-          src="@assets/user.png"
-          class="header_view_action_item"
-          @click="onGoUrl('/user')"
-        />
+        <div class="header_view_action_item">
+          <img
+            src="@assets/search.png"
+            class="header_view_action_item_icon"
+          />
+        </div>
+        <div class="header_view_action_item">
+          <img
+            src="@assets/user.png"
+            class="header_view_action_item_icon"
+            @click="onGoUrl('/user')"
+          />
+        </div>
         <img
           src="@assets/cart.png"
           class="header_view_action_item"
           @click="drawer = true"
         />
         <div class="header_view_action_line"></div>
+        
       </div>
     </div>
   </header>

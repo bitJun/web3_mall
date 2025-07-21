@@ -17,15 +17,7 @@
         "sale": "月销",
         "use": "使用",
         "wallet": "加密钱包",
-        "tip": "来保证您的交易的物理安全",
-        "introduce": "-您的 Ledger 加密钱包的加密伴侣应用程序",
-        "desc": "满足您所有加密需求的便捷解决方案",
-        "name1": "放心地购买、销售和交换",
-        "desc1": "Ledger Live 可用于将您的硬件钱包连接到加密资产和法定货币入口",
-        "name2": "质押加密货币",
-        "desc2": "通过质押 ETH、SOL、ATOM、ADA 和其他几种硬币和代币可以获得奖励",
-        "name3": "掌握您的资产",
-        "desc3": "浏览并比较各种服务和提供商"
+        "tip": "来保证您的交易的物理安全"
     },
     "goods": {
         "title": "探索我们的设备"
@@ -80,6 +72,9 @@
         "desc2": "地方安全地管理您的所有数字资产。",
         "tip": "选择您的操作系统来下载下面的 Ledger Live™"
     },
+    "product": {
+        "title": "最新产品"
+    },
     "center": {
         "home": "个人中心",
         "info": "修改个人信息",
@@ -110,6 +105,27 @@
         "operate1": "操作",
         "num": "数量",
         "type": "服务类型",
-        "del": "删除"
+        "del": "删除",
+        "upload": "上传头像",
+        "tip": "上传JPG或PNG图片。建议300 x 300。",
+        "subtitle": "订单详情",
+        "toPay": "去支付",
+        "cancel": "取消订单",
+        "status": "状态",
+        "orderTime": "下单日期",
+        "orderPrice": "订单金额",
+        "paymentType": "支付方式",
+        "deliver": "配送方式",
+        "addressInfo": "地址信息",
+        "orderGoods": "订购商品",
+        "note": "备注信息",
+        "deliverAddress": "配送地址",
+        "payAddress": "账单地址",
+        "goodsTotal": "商品总计",
+        "fee": "运费",
+        "discount": "会员优惠",
+        "name": "姓名",
+        "address": "地址",
+        "pcode": "邮编"
     }
 }
