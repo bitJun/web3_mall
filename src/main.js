@@ -10,11 +10,32 @@ import './rem.js';
 import App from './App.vue';
 import en from './locales/en.json';
 import zh from './locales/zh.json';
+import Py from './locales/Py.json';
+import Deutsch from './locales/Deutsch.json';
+import Espanol from './locales/zh.json';
+import fr from './locales/fr.json';
+import Indonesia from './locales/Indonesia.json';
+import Italiano from './locales/Italiano.json';
+import Japanese from './locales/Japanese.json';
+import kr from './locales/kr.json';
+import zhCN from './locales/zh-CN.json';
 
 const i18n = createI18n({
   locale: 'en',
   fallbackLocale: 'en',
-  messages: { en, zh }
+  messages: {
+    en,
+    zh,
+    Py,
+    Deutsch,
+    Espanol,
+    fr,
+    Indonesia,
+    Italiano,
+    Japanese,
+    kr,
+    zhCN,
+  }
 });
 const pinia = createPinia();
 const app = createApp(App);

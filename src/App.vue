@@ -31,7 +31,42 @@
           @click="drawer = true"
         />
         <div class="header_view_action_line"></div>
-        
+        <div class="header_view_action_item unit">
+          {{unit}}&nbsp;
+          <div class="header_view_action_item_arrow">
+            <el-icon><ArrowDown /></el-icon>
+          </div>
+          <div class="header_view_action_item_menu">
+            <div
+              v-for="item in unitList"
+              :key="item.id"
+              class="header_view_action_item_menu_item"
+              @click="onChange(item.name)"
+            >
+              <img
+                :src="item.icon"
+                class="header_view_action_item_menu_item_icon"
+              />
+              {{item.name}}
+            </div>
+          </div>
+        </div>
+        <div class="header_view_action_item lang">
+          {{locale}}&nbsp;
+          <div class="header_view_action_item_arrow">
+            <el-icon><ArrowDown /></el-icon>
+          </div>
+          <div class="header_view_action_item_menu">
+            <div
+              v-for="item in langList"
+              :key="item.id"
+              class="header_view_action_item_menu_item"
+              @click="onChangeLang(item.lang)"
+            >
+              {{item.name}}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -128,11 +163,15 @@
           src="http://124.220.206.154/cache//catalog/demo/Ledger Nano S/屏幕截图 2025-05-03 132258-150x150.png"
           class="cart_view_item_img"
         />
-        <span class="cart_view_item_price">$300.00</span>
-        <el-input-number v-model="num" :step="1" />
-        <el-icon class="cart_view_item_del">
-          <Delete />
-        </el-icon>
+        <div class="cart_view_item_main">
+          <p class="cart_view_item_name">Ledger Flex</p>
+          <span class="cart_view_item_price">$300.00</span>
+          <el-input-number v-model="num" :step="1" />
+          <img
+            src="@assets/trash.png"
+            class="cart_view_item_del"
+          />
+        </div>
       </div>
     </div>
     <template #footer v-if="!isEmpty">
@@ -141,16 +180,8 @@
           v-model="checked"
           class="cart_view_footer_checkbox"
         >全选</el-checkbox>
-        <div>
-          <span class="cart_view_footer_total">总计：$300.00</span>
-          <el-button
-            type="primary"
-            class="cart_view_footer_button"
-            @click="onGoUrl('/confirm')"
-          >
-            去结算
-          </el-button>
-        </div>
+        <div class="cart_view_footer_submit">{{t('cart.toPayment')}}</div>
+        <div class="cart_view_footer_cart">{{ t('cart.action') }}</div>
       </div>
     </template>
   </el-drawer>
@@ -160,8 +191,97 @@ import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n';
 import { ref, onMounted } from "vue";
 const { t, locale } = useI18n();
+import RMB from '@assets/RMB.png';
+import USD from '@assets/USD.png';
+import EUR from '@assets/EUR.png';
 
 const router = useRouter();
+const unit = ref('USD');
+const unitImg = ref({
+  'USD': '$',
+  '人民币': '￥',
+  '欧元': '€'
+});
+
+const unitList = ref([
+  {
+    id: 0,
+    name: 'USD',
+    icon: USD
+  },
+  {
+    id: 1,
+    name: 'RMB',
+    icon: RMB
+  },
+  {
+    id: 2,
+    name: 'EUR',
+    icon: EUR
+  }
+]);
+
+const langList = ref([
+  {
+    id: 0,
+    name: 'Espanol',
+    lang: 'Espanol'
+  },
+  {
+    id: 1,
+    name: 'French',
+    lang: 'fr'
+  },
+  {
+    id: 2,
+    name: 'Indonesia',
+    lang: 'Indonesia'
+  },
+  {
+    id: 3,
+    name: 'Italiano',
+    lang: 'Italiano'
+  },
+  {
+    id: 4,
+    name: 'Japanese',
+    lang: 'Japanese'
+  },
+  {
+    id: 5,
+    name: '간체 중문',
+    lang: 'kr'
+  },
+  {
+    id: 6,
+    name: 'Русский',
+    lang: '​Ру'
+  },
+  {
+    id: 7,
+    name: '繁体中文',
+    lang: 'zhCN'
+  },
+  {
+    id: 8,
+    name: 'Deutsch',
+    lang: 'Deutsch'
+  },
+  {
+    id: 9,
+    name: '中文',
+    lang: 'zh'
+  },
+  {
+    id: 10,
+    name: 'English',
+    lang: 'en'
+  }
+])
+
+const onChangeLang = (lang) => {
+  locale.value = lang;
+}
 
 const keyword = ref('');
 const drawer = ref(false);
@@ -170,12 +290,12 @@ const direction = ref('rtl');
 const isEmpty = ref(false); // 是否为空
 const checked = ref(false); // 是否为空
 
-const changeLang = (lang) => {
-  locale.value = lang; // 切换语言（如 'en' 或 'zh'）
-};
-
 const search = () => {
 
+}
+
+const onChange = (name) => {
+  unit.value = name;
 }
 
 const onGoUrl = (url) => {
@@ -186,6 +306,9 @@ const onGoUrl = (url) => {
 .el-drawer__header {
   padding: 0;
   box-sizing: border-box;
+}
+.el-drawer__body {
+  padding: 0 2.4rem;
 }
 </style>
 <style lang="scss" scoped>

@@ -34,6 +34,7 @@
         "forget": "忘记密码"
     },
     "cart": {
+        "action": "查看购物车",
         "title": "首页 / 结账",
         "cart": "购物车",
         "confirm": "结账",
